@@ -41,6 +41,29 @@ class CreateRestaurant extends Restaurant {
     }
 }
 
+class UpdateRestaurant extends Restaurant {
+    constructor({restaurant_id, restaurant_name}) {
+        super({restaurant_name});
+
+        if(!restaurant_id && typeof restaurant_id !== 'string') {
+            throw new Error('restaurant_id is required');
+        }
+
+        this.restaurant_id = restaurant_id;
+    }
+
+    async #_updateRestaurant() {
+        const query = 'UPDATE restaurants SET restaurant_name = ? WHERE uniq_id = ?';
+        await db.executeQuery(query, [this.restaurant_name, this.restaurant_id]);
+    }
+
+    async update() {
+        await this.#_updateRestaurant();
+        return {status: true, message: 'Restaurant updated successfully'};
+    }
+}
+
 module.exports = {
-    CreateRestaurant
+    CreateRestaurant,
+    UpdateRestaurant
 }

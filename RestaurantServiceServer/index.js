@@ -14,6 +14,12 @@ app.use(cors({
     allowedHeaders: ['Authorization', 'Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
 }));
 
+const {startAvailabilityCron} = require('./Services/Restaurants/availability');
+startAvailabilityCron();
+
+const { AvailabilityRouter } = require('./Routers/availability');
+app.use('/v1/api/availability', AvailabilityRouter);
+
 const { MenuRouter } = require('./Routers/menu');
 app.use('/v1/api/menu', MenuRouter);
 

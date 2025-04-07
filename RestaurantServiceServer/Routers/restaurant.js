@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { CreateRestaurant } = require('../Services/Restaurants/manage');
+const { CreateRestaurant, UpdateRestaurant } = require('../Services/Restaurants/manage');
 const { RestaurantRatings } = require('../Services/Restaurants/ratings');
 
 router.post('/create', async (req, res, next) => {
@@ -13,6 +13,23 @@ router.post('/create', async (req, res, next) => {
 
         const restaurant = new CreateRestaurant({ restaurant_name });
         const response = await restaurant.create();
+
+        return res.status(200).json(response);
+    } catch (error) {
+        next(error);
+    }
+});
+
+router.put('/update', async (req, res, next) => {
+    try {
+        const { restaurant_id, restaurant_name } = req.body;
+
+        if (!restaurant_id || !restaurant_name) {
+            return res.status(400).json({ status: false, message: 'restaurant_id and restaurant_name are required' });
+        }
+
+        const restaurant = new UpdateRestaurant({ restaurant_id, restaurant_name });
+        const response = await restaurant.update();
 
         return res.status(200).json(response);
     } catch (error) {
