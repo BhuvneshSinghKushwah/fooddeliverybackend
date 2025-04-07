@@ -14,6 +14,8 @@ app.use(cors({
     allowedHeaders: ['Authorization', 'Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
 }));
 
+const { MenuRouter } = require('./Routers/menu');
+app.use('/v1/api/menu', MenuRouter);
 
 const { RestaurantRouter }  = require('./Routers/restaurant');
 app.use('/v1/api/restaurants', RestaurantRouter);
