@@ -1,5 +1,5 @@
 
-FROM node:23
+FROM node:20
 
 WORKDIR /app
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3010
+EXPOSE 3015
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]

@@ -37,23 +37,38 @@ services:
     depends_on:
       - mysql
 
-  # Optional: Your Node.js backend
-  # backend:
-  #   build: .
-  #   container_name: backend
-  #   restart: always
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - mysql
-  #     - redis
-  #   environment:
-  #     DB_HOST: mysql
-  #     DB_USER: user
-  #     DB_PASSWORD: password
-  #     DB_NAME: foodapp
-  #     REDIS_HOST: redis
-  #     REDIS_PORT: 6379
+  restaurant_service:
+    build:
+      context: ./RestaurantServiceServer
+    container_name: restaurant_service
+    restart: always
+    ports:
+      - "3005:3005"
+    depends_on:
+      - mysql
+      - redis
+
+  user_service:
+    build:
+      context: ./UserServiceServer
+    container_name: user_service
+    restart: always
+    ports:
+      - "3015:3015"
+    depends_on:
+      - mysql
+      - redis
+
+  delivery_agent_service:
+    build:
+      context: ./DeliveryAgentServer
+    container_name: delivery_agent_service
+    restart: always
+    ports:
+      - "3010:3010"
+    depends_on:
+      - mysql
+      - redis
 
 volumes:
   mysql_data:
