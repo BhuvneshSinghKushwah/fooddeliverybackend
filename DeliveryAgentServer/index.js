@@ -15,13 +15,13 @@ app.use(cors({
 }));
 
 const { DeliveryRouter } = require('./Routers/delivery');
-app.use('/v1/api/delivery', DeliveryRouter);
+app.use('/d1/api/delivery', DeliveryRouter);
 
 const { AgentsRouter } = require('./Routers/agents');
-app.use('/v1/api/agent', AgentsRouter);
+app.use('/d1/api/agent', AgentsRouter);
 
 
-app.get('/v1/status', (req, res) => {
+app.get('/d1/status', (req, res) => {
     res.send('Delivery Server is running!');
 });
 

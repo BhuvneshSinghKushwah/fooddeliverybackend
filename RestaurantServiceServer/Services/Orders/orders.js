@@ -158,7 +158,7 @@ class UpdateOrderStatus extends Orders {
     }
 
     async #_assignDeliveryAgent() {
-        await axios.post(`${process.env.DELIVERY_AGENT_SERVICE_URL}/v1/api/delivery/assign`, {
+        await axios.post(`${process.env.DELIVERY_AGENT_SERVICE_URL}/d1/api/delivery/assign`, {
             order_id: this.order_id
         }).then(response => {
             if (response.status !== 200) {
@@ -171,7 +171,7 @@ class UpdateOrderStatus extends Orders {
     }
 
     async #_deassignDeliveryAgent() {
-        await axios.put(`${process.env.DELIVERY_AGENT_SERVICE_URL}/v1/api/delivery/update_delivery_status`, {
+        await axios.put(`${process.env.DELIVERY_AGENT_SERVICE_URL}/d1/api/delivery/update_delivery_status`, {
             order_id: this.order_id,
             status: 'canceled'
         }).then(response => {

@@ -26,7 +26,7 @@ class CreateOrder extends Users {
     }
 
     async #_createOrder() {
-        await axios.post(`${process.env.RESTAURANT_SERVICE_URL}/v1/api/orders/create`, {
+        await axios.post(`${process.env.RESTAURANT_SERVICE_URL}/r1/api/orders/create`, {
             restaurant_id: this.restaurant_id,
             user_id: this.user_id,
             order_items: this.order_items

@@ -15,13 +15,13 @@ app.use(cors({
 }));
 
 const { UserRouter } = require('./Routers/users');
-app.use('/v1/api/users', UserRouter);
+app.use('/u1/api/users', UserRouter);
 
 const { OrderRouter } = require('./Routers/order');
-app.use('/v1/api/order', OrderRouter);
+app.use('/u1/api/order', OrderRouter);
 
 
-app.get('/v1/status', (req, res) => {
+app.get('/u1/status', (req, res) => {
     res.send('User Server is running!');
 });
 

@@ -18,18 +18,18 @@ const {startAvailabilityCron} = require('./Services/Restaurants/availability');
 startAvailabilityCron();
 
 const {OrderRouter} = require('./Routers/orders');
-app.use('/v1/api/orders', OrderRouter);
+app.use('/r1/api/orders', OrderRouter);
 
 const { AvailabilityRouter } = require('./Routers/availability');
-app.use('/v1/api/availability', AvailabilityRouter);
+app.use('/r1/api/availability', AvailabilityRouter);
 
 const { MenuRouter } = require('./Routers/menu');
-app.use('/v1/api/menu', MenuRouter);
+app.use('/r1/api/menu', MenuRouter);
 
 const { RestaurantRouter }  = require('./Routers/restaurant');
-app.use('/v1/api/restaurants', RestaurantRouter);
+app.use('/r1/api/restaurants', RestaurantRouter);
 
-app.get('/v1/status', (req, res) => {
+app.get('/r1/status', (req, res) => {
     res.send('Restaurant Server is running!');
 });
 
