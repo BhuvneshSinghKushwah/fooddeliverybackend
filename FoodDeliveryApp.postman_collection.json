@@ -1,0 +1,849 @@
+{
+	"info": {
+		"_postman_id": "b8930113-c4ff-4899-b65b-bdea31f8d46f",
+		"name": "FoodDeliveryApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38397303"
+	},
+	"item": [
+		{
+			"name": "RestaurantService",
+			"item": [
+				{
+					"name": "restaurants",
+					"item": [
+						{
+							"name": "restaurants/rating",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/restaurants/rating?restaurant_id=RESe5bd6e521154393b6",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"restaurants",
+										"rating"
+									],
+									"query": [
+										{
+											"key": "restaurant_id",
+											"value": "RESe5bd6e521154393b6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restaurants/create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_name\": \"First Restaurant\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/restaurants/create",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"restaurants",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restaurants/update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_name\": \"new_restaurant\",\n    \"restaurant_id\": \"RESe5bd6e521154393b6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/restaurants/update",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"restaurants",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restaurants/rating",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"rating\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/restaurants/rating",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"restaurants",
+										"rating"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "menu",
+					"item": [
+						{
+							"name": "menu/create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"menu_items\": [\n        {\"item_name\": \"burger\", \"item_price\": 250, \"item_description\": \"Heart Attack Burger\"},\n        {\"item_name\": \"pizza\", \"item_price\": 500, \"item_description\": \"No cheese pizza\"},\n        {\"item_name\": \"Monster White Energy Drink\", \"item_price\": 100, \"item_description\": \"Preworkout\"}\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/menu/create",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"menu",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "menu/update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"menu_items\": [\n        {\"menu_id\": \"MENeed92fc36a88075dc\", \"item_name\": \"Monster MangoLoco Energy Drink\", \"item_price\": 120, \"item_description\": \"Best Preworkout\"}\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/menu/update",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"menu",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "menu/get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/menu/get?restaurant_id=RESe5bd6e521154393b6",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"menu",
+										"get"
+									],
+									"query": [
+										{
+											"key": "restaurant_id",
+											"value": "RESe5bd6e521154393b6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "menu/delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"menu_ids\": [\n        \"MENeed92fc36a88075dc\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/menu/delete",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"menu",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "menu/rating",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"menu_id\": \"MEN1c225a552a7acfc79\",\n    \"rating\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/menu/rating",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"menu",
+										"rating"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "menu/rating",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"menu_id\": \"MEN1c225a552a7acfc79\",\n    \"rating\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/menu/rating?restaurant_id=RESe5bd6e521154393b6&menu_id=MEN1c225a552a7acfc79",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"menu",
+										"rating"
+									],
+									"query": [
+										{
+											"key": "restaurant_id",
+											"value": "RESe5bd6e521154393b6"
+										},
+										{
+											"key": "menu_id",
+											"value": "MEN1c225a552a7acfc79"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "availability",
+					"item": [
+						{
+							"name": "availability/create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"availability\": [\n        {\n            \"day_of_week\": \"Mon\",\n            \"start_hour\": 8,\n            \"end_hour\": 19\n        },\n        {\n            \"day_of_week\": \"Tue\",\n            \"start_hour\": 8,\n            \"end_hour\": 18\n        },\n        {\n            \"day_of_week\": \"Wed\",\n            \"start_hour\": 8,\n            \"end_hour\": 18\n        },\n        {\n            \"day_of_week\": \"Thu\",\n            \"start_hour\": 8,\n            \"end_hour\": 20\n        },\n        {\n            \"day_of_week\": \"Fri\",\n            \"start_hour\": 8,\n            \"end_hour\": 20\n        },\n        {\n            \"day_of_week\": \"Sat\",\n            \"start_hour\": 9,\n            \"end_hour\": 22\n        },\n        {\n            \"day_of_week\": \"Sun\",\n            \"start_hour\": 10,\n            \"end_hour\": 17\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/availability/create",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"availability",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "availability/update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"availability\": [\n        {\n            \"day_of_week\": \"Mon\",\n            \"start_hour\": 8,\n            \"end_hour\": 19\n        },\n        {\n            \"day_of_week\": \"Tue\",\n            \"start_hour\": 8,\n            \"end_hour\": 19\n        },\n        {\n            \"day_of_week\": \"Wed\",\n            \"start_hour\": 8,\n            \"end_hour\": 19\n        },\n        {\n            \"day_of_week\": \"Thu\",\n            \"start_hour\": 8,\n            \"end_hour\": 19\n        },\n        {\n            \"day_of_week\": \"Fri\",\n            \"start_hour\": 8,\n            \"end_hour\": 23\n        },\n        {\n            \"day_of_week\": \"Sat\",\n            \"start_hour\": 9,\n            \"end_hour\": 23\n        },\n        {\n            \"day_of_week\": \"Sun\",\n            \"start_hour\": 10,\n            \"end_hour\": 18\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/availability/update",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"availability",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "availability/update_open",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"is_open\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/availability/update_open",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"availability",
+										"update_open"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "availability/delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"days\": [\"Mon\", \"Tue\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/availability/delete",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"availability",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "availability/get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/availability/get?restaurant_id=RESe5bd6e521154393b6",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"availability",
+										"get"
+									],
+									"query": [
+										{
+											"key": "restaurant_id",
+											"value": "RESe5bd6e521154393b6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "availability/get_open",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/availability/get_open",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"availability",
+										"get_open"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "orders/create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"user_id\": \"USRe5bd6e521154393b6\",\n    \"order_items\": [\n        {\"menu_item_id\": \"MENcdc5de6e004510de7\", \"quantity\": 2},\n        {\"menu_item_id\": \"MEN2c0c173a31822fa9e\", \"quantity\": 1},\n        {\"menu_item_id\": \"MEN2c0c173a31822fa9e\", \"quantity\": 3}\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/orders/create",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"orders",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "orders/update_order_status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"order_id\": \"ORD254caa3e0338e0233\",\n    \"status\": \"food_prepared\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{RestaurantServiceUri}}/orders/update_order_status",
+									"host": [
+										"{{RestaurantServiceUri}}"
+									],
+									"path": [
+										"orders",
+										"update_order_status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "DeliveryAgentService",
+			"item": [
+				{
+					"name": "agents",
+					"item": [
+						{
+							"name": "agent/register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"agent_name\": \"new_agent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DeliveryAgentServiceUri}}/agent/register",
+									"host": [
+										"{{DeliveryAgentServiceUri}}"
+									],
+									"path": [
+										"agent",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "agent/agent_availability",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"agent_id\": \"AGT3db017996bbd27928\",\n    \"is_available\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DeliveryAgentServiceUri}}/agent/agent_availability",
+									"host": [
+										"{{DeliveryAgentServiceUri}}"
+									],
+									"path": [
+										"agent",
+										"agent_availability"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "agent/details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DeliveryAgentServiceUri}}/agent/details?agent_id=AGT3db017996bbd27928",
+									"host": [
+										"{{DeliveryAgentServiceUri}}"
+									],
+									"path": [
+										"agent",
+										"details"
+									],
+									"query": [
+										{
+											"key": "agent_id",
+											"value": "AGT3db017996bbd27928"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "agent/available_agents",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DeliveryAgentServiceUri}}/agent/available_agents",
+									"host": [
+										"{{DeliveryAgentServiceUri}}"
+									],
+									"path": [
+										"agent",
+										"available_agents"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "delivery",
+					"item": [
+						{
+							"name": "delivery/update_delivery_status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order_id\": \"ORD254caa3e0338e0233\",\n    \"status\": \"delivered\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DeliveryAgentServiceUri}}/delivery/update_delivery_status",
+									"host": [
+										"{{DeliveryAgentServiceUri}}"
+									],
+									"path": [
+										"delivery",
+										"update_delivery_status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "UserAgentService",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "users/create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"new Bhuvnesh\",\n    \"email\": \"new@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UserAgentServiceUri}}/users/create",
+									"host": [
+										"{{UserAgentServiceUri}}"
+									],
+									"path": [
+										"users",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users/details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{UserAgentServiceUri}}/users/details?user_id=USRc421a0c04ecfc9d1e",
+									"host": [
+										"{{UserAgentServiceUri}}"
+									],
+									"path": [
+										"users",
+										"details"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "USRc421a0c04ecfc9d1e"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users/update_user",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": \"USRc421a0c04ecfc9d1e\",\n    \"name\": \"new Bhuvneshh\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UserAgentServiceUri}}/users/update_user",
+									"host": [
+										"{{UserAgentServiceUri}}"
+									],
+									"path": [
+										"users",
+										"update_user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "order",
+					"item": [
+						{
+							"name": "order/create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"RESe5bd6e521154393b6\",\n    \"user_id\": \"USRc421a0c04ecfc9d1e\",\n    \"order_items\": [\n        {\"menu_item_id\": \"MENcdc5de6e004510de7\", \"quantity\": 2},\n        {\"menu_item_id\": \"MEN2c0c173a31822fa9e\", \"quantity\": 1},\n        {\"menu_item_id\": \"MEN2c0c173a31822fa9e\", \"quantity\": 3}\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{UserAgentServiceUri}}/order/create",
+									"host": [
+										"{{UserAgentServiceUri}}"
+									],
+									"path": [
+										"order",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "RestaurantServiceUri",
+			"value": "http://localhost:3005/r1/api",
+			"type": "string"
+		},
+		{
+			"key": "DeliveryAgentServiceUri",
+			"value": "http://localhost:3010/d1/api",
+			"type": "string"
+		},
+		{
+			"key": "UserAgentServiceUri",
+			"value": "http://localhost:3015/u1/api",
+			"type": "string"
+		}
+	]
+}
